@@ -5,7 +5,10 @@ import java.util.List;
 
 public class PrimeFactorize {
 
-    public List<Integer> getPrimeFactors(int a) {
+    public List<Integer> getPrimeFactors(Integer a) {
+        if (a < 0) {
+            throw new IllegalArgumentException("Number must be positive");
+        }
         List<Integer> list = new ArrayList<>();
         int divisor = 2;
         while (a > 1) {

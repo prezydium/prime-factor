@@ -90,5 +90,11 @@ public class PrimeFactorizeTest {
         //then
         Assertions.assertThat(actual).isEqualTo(expected);
     }
-
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowException() {
+        //given
+        int a = -1;
+        //when
+        List actual = primeFactorize.getPrimeFactors(a);
+    }
 }
