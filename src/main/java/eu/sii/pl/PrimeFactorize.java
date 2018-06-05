@@ -21,13 +21,13 @@ public class PrimeFactorize {
         return list;
     }
 
-    public int getNextPrime(int a) {
+    int getNextPrime(int a) {
         a++;
         while (!isPrime(a)) a++;
         return a;
     }
 
-    public boolean isPrime(int a) {
+    boolean isPrime(int a) {
         if (a == 2) {
             return true;
         }
