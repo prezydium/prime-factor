@@ -24,7 +24,7 @@ public class PrimeFactorizeTest {
             add(2);
             add(2);
         }};
-        int numberToTest = 4;
+        int numberToTest = 2*2;
         //when
         List<Integer> result = primeFactorize.getPrimeFactors(numberToTest);
         //then
@@ -41,60 +41,22 @@ public class PrimeFactorizeTest {
             add(3);
             add(7);
         }};
-        int numberToTest = 168;
+        int numberToTest = 2*2*2*3*7;
         //when
         List<Integer> result = primeFactorize.getPrimeFactors(numberToTest);
         //then
         Assertions.assertThat(result).isEqualTo(expected);
     }
 
-    @Test
-    public void shouldCheckIsPrimeAndReturnTrue() {
-        //given
-        int a = 89;
-        //when
-        boolean actual = primeFactorize.isPrime(a);
-        //then
-        Assert.assertTrue(actual);
-
-    }
-
-    @Test
-    public void shouldCheckIsPrimeAndReturnFalse() {
-        //given
-        int a = 90;
-        //when
-        boolean actual = primeFactorize.isPrime(a);
-        //then
-        Assert.assertFalse(actual);
-    }
-
-    @Test
-    public void shouldGetNextPrime() {
-        //given
-        int a = 90;
-        int expected = 97;
-        //when
-        int actual = primeFactorize.getNextPrime(a);
-        //then
-        Assertions.assertThat(actual).isEqualTo(expected);
-    }
-
-    @Test
-    public void shouldGetNextPrimeNumberTwo() {
-        //given
-        int a = 1;
-        int expected = 2;
-        //when
-        int actual = primeFactorize.getNextPrime(a);
-        //then
-        Assertions.assertThat(actual).isEqualTo(expected);
-    }
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowException() {
+    public void shouldThrowIllegalArgumentException() {
         //given
         int a = -1;
         //when
         List actual = primeFactorize.getPrimeFactors(a);
+    }
+    @Test(expected = NumberFormatException.class)
+    public void shouldThrowNumberFormatException(){
+        primeFactorize.getPrimeFactors(Integer.valueOf("99999999999999999999999"));
     }
 }
